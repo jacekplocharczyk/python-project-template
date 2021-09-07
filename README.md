@@ -17,3 +17,13 @@ pipenv install --dev
 ```
 pipenv lock -r > requirements.txt
 ```
+
+## Run pytest
+```
+pipenv run pytest
+```
+
+## Run black
+```
+pipenv run black .
+```
