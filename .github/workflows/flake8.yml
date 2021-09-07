@@ -1,0 +1,20 @@
+name: Flake8 check
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Install pipenv
+      run: |
+        pip install pipenv
+    - name: Run flake8
+      run: |
+        pipenv install --dev
+        pipenv run flake8
