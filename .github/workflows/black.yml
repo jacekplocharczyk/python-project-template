@@ -5,12 +5,16 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
-    - name: Check black formatting
-      uses: jpetrucciani/black-check@master
+    - name: Install pipenv
+      run: |
+        pip install pipenv
+    - name: Run black
+      run: |
+        pipenv install --dev
+        pipenv run black --check .
